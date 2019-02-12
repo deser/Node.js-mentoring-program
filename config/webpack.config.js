@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackShellPlugin = require('webpack-shell-plugin');
+const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 
 const ENTRY_PATH = path.join(__dirname, '../src/app.js');
@@ -22,6 +23,7 @@ module.exports = (env, argv) => ({
     },
     
     target: 'node',
+    externals: [nodeExternals()],
     resolve: {
       extensions: ['.js', '.json'],
       alias: {

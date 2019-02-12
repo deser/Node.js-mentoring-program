@@ -1,4 +1,4 @@
-import express from 'express';
+import * as express from 'express';
 import routes from './routes';
 import controllers from './controllers';
 import cookieParser from './middlewares/cookieParser';
@@ -8,6 +8,7 @@ const app = express();
 
 app.use(cookieParser());
 app.use(queryParser());
+app.use(express.json());
 
 const router = express.Router();
 
